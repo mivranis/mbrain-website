@@ -6,7 +6,7 @@
   const menuToggle = document.querySelector('.menu-toggle');
   const hero = document.querySelector('.hero-panel');
   const heroCut = document.querySelector('.hero-cut');
-  const heroWord = document.querySelector('.hero-word');
+  const heroLogo = document.querySelector('.hero-logo');
   const thought = document.querySelector('.thought-panel');
   const shape = document.querySelector('.shape-panel');
   const build = document.querySelector('.build-panel');
@@ -80,12 +80,8 @@
     setNav(active.id);
 
     const heroP = clamp01(currentX / (innerWidth * .78));
-    const heroWeight = Math.round(900 - heroP * 660);
-    document.documentElement.style.setProperty('--hero-wght', heroWeight);
-    document.documentElement.style.setProperty('--hero-cut-h', `${2 + heroP * 20}vh`);
-    document.documentElement.style.setProperty('--hero-cut-alpha', `${heroP * .18}`);
-    heroCut.style.backgroundPosition = `${50 + heroP * 10}% 52%`;
-    heroWord.style.transform = `translateX(${-heroP * 3.5}vw)`;
+    document.documentElement.style.setProperty('--hero-cut-h', `${2 + heroP * 6}px`);
+    if (heroLogo) heroLogo.style.transform = `translateX(${-heroP * 3.5}vw) scale(${1 - heroP * .035})`;
 
     const tp = panelProgress(thought);
     thought.style.setProperty('--p', tp.toFixed(3));
@@ -149,13 +145,7 @@
   let dragStartScroll = 0;
   shell.addEventListener('pointerdown', event => {
     if (event.button !== 0) return;
-
-    // Interactive controls must keep their native click behaviour.
-    // Starting the horizontal drag here would capture the pointer on
-    // the shell and prevent buttons, including the service accordion,
-    // from receiving their click event.
     if (event.target.closest('a, button, input, textarea, select, label')) return;
-
     dragging = true;
     dragStartX = event.clientX;
     dragStartScroll = targetX;
@@ -183,8 +173,7 @@
   });
 
   if (reduced) {
-    document.documentElement.style.setProperty('--hero-wght', 450);
-    document.documentElement.style.setProperty('--hero-cut-h', '14vh');
+    document.documentElement.style.setProperty('--hero-cut-h', '4px');
   }
 
   updateVisuals();
