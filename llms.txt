@@ -1,0 +1,26 @@
+# MBrain
+
+> MBrain is an independent digital studio working across creative websites, digital products and platforms, automations and integrations, and digital project leadership.
+
+## Method
+
+MBrain works through three stages: Thought, Shape and Build.
+
+- Thought: challenge the request and identify the actual business need.
+- Shape: turn that need into a clear blueprint, structure and approach.
+- Build: develop, coordinate or lead the work through delivery.
+
+## Services
+
+- [Creative Web Experiences](https://mbrain.gr/#services): Creative websites and digital experiences with a distinct identity and purpose.
+- [Automations & Integrations](https://mbrain.gr/#services): Workflows, APIs, system integrations and useful automation.
+- [Digital Products & Platforms](https://mbrain.gr/#services): Product and platform architecture, UX direction and buildable blueprints.
+- [Digital Project Leadership](https://mbrain.gr/#services): Temporary ownership and leadership for digital projects that need structure and delivery.
+
+## About
+
+MBrain is led by Michalis Vranis and combines hands-on building, digital product thinking, technology, automation and project delivery.
+
+## Contact
+
+- [MBrain website](https://mbrain.gr/)
