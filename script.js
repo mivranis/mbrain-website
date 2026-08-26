@@ -16,10 +16,21 @@
 
   const clamp01 = n => Math.max(0, Math.min(1, n));
 
+  function setMenuState(open) {
+    document.body.classList.toggle('menu-open', open);
+    menuToggle?.setAttribute('aria-expanded', String(open));
+    menuToggle?.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    if (menuToggle) menuToggle.textContent = open ? 'Close' : 'Menu';
+  }
+
   menuToggle?.addEventListener('click', () => {
-    const open = document.body.classList.toggle('menu-open');
-    menuToggle.setAttribute('aria-expanded', String(open));
-    menuToggle.textContent = open ? 'Close' : 'Menu';
+    setMenuState(!document.body.classList.contains('menu-open'));
+  });
+
+  window.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && document.body.classList.contains('menu-open')) {
+      setMenuState(false);
+    }
   });
 
   document.querySelectorAll('.cap-item').forEach(button => {
@@ -44,9 +55,7 @@
 
   if (coarse) {
     navLinks.forEach(link => link.addEventListener('click', () => {
-      document.body.classList.remove('menu-open');
-      menuToggle?.setAttribute('aria-expanded', 'false');
-      if (menuToggle) menuToggle.textContent = 'Menu';
+      setMenuState(false);
     }));
 
     const observer = new IntersectionObserver(entries => {
@@ -63,9 +72,15 @@
   const maxScroll = () => shell.scrollWidth - shell.clientWidth;
   const clampX = x => Math.max(0, Math.min(x, maxScroll()));
 
-  function panelProgress(panel) {
+  function panelProgress(panel, triggerPercent = 50, animationDistancePercent = 50) {
     const left = panel.offsetLeft - currentX;
-    return clamp01((window.innerWidth - left) / (window.innerWidth * .92));
+  
+    const triggerPoint = window.innerWidth * (triggerPercent / 100);
+    const animationDistance = window.innerWidth * (animationDistancePercent / 100);
+  
+    return clamp01(
+      (triggerPoint - left) / animationDistance
+    );
   }
 
   function updateVisuals() {
@@ -80,17 +95,18 @@
     setNav(active.id);
 
     const heroP = clamp01(currentX / (innerWidth * .78));
-    document.documentElement.style.setProperty('--hero-cut-h', `${2 + heroP * 6}px`);
+    document.documentElement.style.setProperty('--hero-cut-h', `${heroP * 55}px`);
     if (heroLogo) heroLogo.style.transform = `translateX(${-heroP * 3.5}vw) scale(${1 - heroP * .035})`;
 
-    const tp = panelProgress(thought);
-    thought.style.setProperty('--p', tp.toFixed(3));
+	const tp = panelProgress(thought, 50);
+	thought.style.setProperty('--p', tp.toFixed(3));
 
-    const sp = panelProgress(shape);
-    shape.style.setProperty('--p', sp.toFixed(3));
+	const sp = panelProgress(shape, 110, 40);
+	shape.style.setProperty('--p', sp.toFixed(3));
 
-    const bp = panelProgress(build);
-    build.style.setProperty('--p', bp.toFixed(3));
+	const bp = panelProgress(build, 50);
+	build.style.setProperty('--p', bp.toFixed(3));
+	
     buildBands.forEach((band, index) => {
       const local = clamp01((bp - index * .075) / .62);
       band.style.setProperty('--bp', local.toFixed(3));
