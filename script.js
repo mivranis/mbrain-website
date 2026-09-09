@@ -2,6 +2,9 @@
   const shell = document.getElementById('h-shell');
   const panels = [...document.querySelectorAll('.panel')];
   const navLinks = [...document.querySelectorAll('.nav a')];
+  const navSectionLinks = [...document.querySelectorAll('.nav > a, .nav-services-trigger')];
+  const servicesNav = document.querySelector('.nav-services');
+  const servicesTrigger = document.querySelector('.nav-services-trigger');
   const progressBar = document.querySelector('.progress-bar');
   const menuToggle = document.querySelector('.menu-toggle');
   const hero = document.querySelector('.hero-panel');
@@ -16,15 +19,27 @@
 
   const clamp01 = n => Math.max(0, Math.min(1, n));
 
+  function setServicesState(open) {
+    servicesNav?.classList.toggle('open', open);
+    servicesTrigger?.setAttribute('aria-expanded', String(open));
+  }
+
   function setMenuState(open) {
     document.body.classList.toggle('menu-open', open);
     menuToggle?.setAttribute('aria-expanded', String(open));
     menuToggle?.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
     if (menuToggle) menuToggle.textContent = open ? 'Close' : 'Menu';
+    if (!open) setServicesState(false);
   }
 
   menuToggle?.addEventListener('click', () => {
     setMenuState(!document.body.classList.contains('menu-open'));
+  });
+
+  servicesTrigger?.addEventListener('click', event => {
+    if (!coarse) return;
+    event.preventDefault();
+    setServicesState(!servicesNav?.classList.contains('open'));
   });
 
   window.addEventListener('keydown', event => {
@@ -50,11 +65,12 @@
   });
 
   function setNav(id) {
-    navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
+    navSectionLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
   }
 
   if (coarse) {
     navLinks.forEach(link => link.addEventListener('click', () => {
+      if (link === servicesTrigger) return;
       setMenuState(false);
     }));
 

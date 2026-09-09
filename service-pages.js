@@ -1,20 +1,46 @@
 (() => {
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = [...document.querySelectorAll('.nav a')];
+  const servicesNav = document.querySelector('.nav-services');
+  const servicesTrigger = document.querySelector('.nav-services-trigger');
+  const mobileNav = window.matchMedia('(max-width:900px), (pointer:coarse)');
   const progress = document.querySelector('.service-progress span');
 
+  function setServicesState(open) {
+    servicesNav?.classList.toggle('open', open);
+    servicesTrigger?.setAttribute('aria-expanded', String(open));
+  }
+
+  function setMenuState(open) {
+    document.body.classList.toggle('menu-open', open);
+    menuToggle?.setAttribute('aria-expanded', String(open));
+    menuToggle?.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    if (menuToggle) menuToggle.textContent = open ? 'Close' : 'Menu';
+    if (!open) setServicesState(false);
+  }
+
   menuToggle?.addEventListener('click', () => {
-    const open = document.body.classList.toggle('menu-open');
-    menuToggle.setAttribute('aria-expanded', String(open));
-    menuToggle.textContent = open ? 'Close' : 'Menu';
+    setMenuState(!document.body.classList.contains('menu-open'));
+  });
+
+  servicesTrigger?.addEventListener('click', event => {
+    if (!mobileNav.matches) return;
+    event.preventDefault();
+    setServicesState(!servicesNav?.classList.contains('open'));
   });
 
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
-      document.body.classList.remove('menu-open');
-      menuToggle?.setAttribute('aria-expanded', 'false');
-      if (menuToggle) menuToggle.textContent = 'Menu';
+      if (link === servicesTrigger) return;
+      setMenuState(false);
     });
+  });
+
+  window.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      setServicesState(false);
+      if (document.body.classList.contains('menu-open')) setMenuState(false);
+    }
   });
 
   const updateProgress = () => {

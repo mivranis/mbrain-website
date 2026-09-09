@@ -30,8 +30,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=1.0.0">
-  <link rel="stylesheet" href="service-pages.css?v=1.0.0">
+  <link rel="stylesheet" href="styles.css?v=1.0.1">
+  <link rel="stylesheet" href="service-pages.css?v=1.0.1">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PNG44XED51"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -45,7 +45,17 @@
     <a class="brand" href="index.html">MBrain</a>
     <nav class="nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
-      <a href="index.html#services" class="active">Services</a>
+      <div class="nav-services">
+        <a class="nav-services-trigger active" href="index.html#services" aria-haspopup="true" aria-expanded="false">
+          <span>Services</span><span class="nav-services-caret" aria-hidden="true">+</span>
+        </a>
+        <div class="nav-services-dropdown" aria-label="Services">
+          <a href="creative-web-experiences.html">Creative Web Experiences</a>
+          <a href="automations-integrations.html">Automations & Integrations</a>
+          <a href="digital-products-platforms.html" aria-current="page">Digital Products & Platforms</a>
+          <a href="digital-project-leadership.html">Digital Project Leadership</a>
+        </div>
+      </div>
       <a href="index.html#why">Why MBrain</a>
       <a href="index.html#contact">Contact</a>
     </nav>
@@ -212,6 +222,6 @@
   </section>
 
   </main>
-  <script src="service-pages.js?v=1.0.0" defer></script>
+  <script src="service-pages.js?v=1.0.1" defer></script>
 </body>
 </html>

@@ -26,6 +26,19 @@ body.service-page.menu-open .site-header{
   border-bottom-color:transparent;
 }
 
+/* Service-page menu colors only. */
+body.service-page .site-header .brand,
+body.service-page .site-header .nav,
+body.service-page .site-header .nav a{
+  color:var(--ink);
+  mix-blend-mode:normal;
+}
+body.service-page .site-header .nav-services-dropdown{
+  background:var(--ink);
+  border-color:rgba(17,19,24,.16);
+}
+body.service-page .site-header .nav-services-dropdown a{color:var(--paper)}
+
 .brand, .nav, .other-service, a {
 	mix-blend-mode: difference;
 }
@@ -671,6 +684,11 @@ body.service-page.menu-open .site-header{
   body.service-page.menu-open .site-header{
     color:var(--paper);
   }
+  body.service-page.menu-open .site-header .brand,
+  body.service-page.menu-open .site-header .nav,
+  body.service-page.menu-open .site-header .nav a{color:var(--paper)}
+  body.service-page .site-header .nav-services-dropdown{background:transparent;border-color:rgba(243,239,231,.28)}
+  body.service-page .site-header .nav-services-dropdown a{color:var(--paper)}
 .service-hero-inner{
   padding-left:.35rem;
   padding-right:.35rem;

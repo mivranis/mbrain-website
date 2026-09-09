@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"> 
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=1.0.0">
+  <link rel="stylesheet" href="styles.css?v=1.0.1">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PNG44XED51"></script>
   <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-PNG44XED51');</script>
   <meta name="description" content="MBrain is an independent digital studio working across creative websites, digital products, automations and project leadership.">
@@ -38,7 +38,17 @@
       <a href="#thought">Thought</a>
       <a href="#shape">Shape</a>
       <a href="#build">Build</a>
-      <a href="#services">Services</a>
+      <div class="nav-services">
+        <a class="nav-services-trigger" href="#services" aria-haspopup="true" aria-expanded="false">
+          <span>Services</span><span class="nav-services-caret" aria-hidden="true">+</span>
+        </a>
+        <div class="nav-services-dropdown" aria-label="Services">
+          <a href="creative-web-experiences.html">Creative Web Experiences</a>
+          <a href="automations-integrations.html">Automations & Integrations</a>
+          <a href="digital-products-platforms.html">Digital Products & Platforms</a>
+          <a href="digital-project-leadership.html">Digital Project Leadership</a>
+        </div>
+      </div>
       <a href="#why">Why MBrain</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -60,7 +70,7 @@
 
           <div class="hero-word-stage">
             <h1 class="sr-only">MBrain</h1>
-            <img class="hero-logo" src="/assets/mbrain-logo-full-660.webp" srcset="/assets/mbrain-logo-full-660.webp 660w,/assets/mbrain-logo-full.webp 1315w" sizes="(max-width: 900px) calc(100vw - 38px), 74vw" width="660" height="195" fetchpriority="high" decoding="async" alt="MBrain">
+            <img class="hero-logo" src="assets/mbrain-logo-full-660.webp" srcset="assets/mbrain-logo-full-660.webp 660w,assets/mbrain-logo-full.webp 1315w" sizes="(max-width: 900px) calc(100vw - 38px), 74vw" width="660" height="195" fetchpriority="high" decoding="async" alt="MBrain">
             <div class="hero-cut" aria-hidden="true"></div>
           </div>
 
@@ -158,6 +168,7 @@
                 <h3>You need the digital presence to live up to the thing itself.</h3>
                 <p>Some projects deserve more than a perfectly functional website. The brand, the place, the product or the idea needs an experience with its own character.</p>
                 <p>I design and build creative websites around what makes the subject worth paying attention to, with the technology staying close enough to the concept that the idea survives implementation.</p>
+                <a class="cap-service-link" href="creative-web-experiences.html">Explore Creative Web Experiences <span aria-hidden="true">→</span></a>
               </div>
             </div>
 
@@ -171,6 +182,7 @@
                 <h3>Your tools work. The gaps between them don’t.</h3>
                 <p>Information gets copied. Tasks get repeated. Someone becomes the human connection between systems that should already be connected.</p>
                 <p>I look at the workflow as a whole, work out what should happen automatically and connect the pieces through integrations, APIs, automation and AI where it genuinely adds value.</p>
+                <a class="cap-service-link" href="automations-integrations.html">Explore Automations &amp; Integrations <span aria-hidden="true">→</span></a>
               </div>
             </div>
 
@@ -184,6 +196,7 @@
                 <h3>You know what it needs to do. It still needs to become a product.</h3>
                 <p>Users. Journeys. Features. Rules. Integrations. Priorities. Edge cases. The initial idea has to become a structure that people can understand and build.</p>
                 <p>I help architect that structure, guide the UX, give direction to the UI and create a blueprint that design and development teams can work from with confidence.</p>
+                <a class="cap-service-link" href="digital-products-platforms.html">Explore Digital Products &amp; Platforms <span aria-hidden="true">→</span></a>
               </div>
             </div>
 
@@ -197,6 +210,7 @@
                 <h3>Some digital projects need an owner more than they need another hire.</h3>
                 <p>The work crosses teams. Decisions depend on other decisions. Suppliers need direction. Business and technology need to move together.</p>
                 <p>I can step into the project for as long as the work needs me, bring structure to it, coordinate the people involved and stay responsible for moving it towards delivery.</p>
+                <a class="cap-service-link" href="digital-project-leadership.html">Explore Digital Project Leadership <span aria-hidden="true">→</span></a>
               </div>
             </div>
           </div>
@@ -236,6 +250,6 @@
     </div>
   </main>
 
-  <script src="script.js?v=1.0.0"></script>
+  <script src="script.js?v=1.0.1"></script>
 </body>
 </html>
