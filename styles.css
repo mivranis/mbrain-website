@@ -73,7 +73,7 @@ a{color:#ffffff;text-decoration:none}button{font:inherit}.mono{font-family:"Outf
     -webkit-backdrop-filter:blur(14px);
     border-bottom:1px solid rgba(17,19,24,.07)
   }
-  .brand{position:relative;z-index:95;font-size:.98rem}
+  .brand{position:relative;z-index:95;font-size:.98rem;color: #ffffff;mix-blend-mode: difference;}
   .menu-toggle{display:block;position:relative;z-index:95;justify-self:end;font-size:.88rem}
   .nav{
     position:fixed;
